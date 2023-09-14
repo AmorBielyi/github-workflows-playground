@@ -1,0 +1,13 @@
+name: build
+on:
+  pull_request:
+    types:
+      - opened
+
+jobs:
+  run-unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3
+      - uses: actions/setup-go@v3
+      - run:  go test ./...
