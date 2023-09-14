@@ -1,13 +1,19 @@
-name: build
+name: clerk
 on:
   pull_request:
     types:
       - opened
 
 jobs:
-  run-unit-tests:
+  clerk:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3
-      - uses: actions/setup-go@v3
-      - run:  go test ./...
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: 1.19
+      - name: Build
+        run:  go build -v ./...
+      - name: Unit Test
+        run: go test -v ./...
