@@ -11,5 +11,5 @@ func abs(n float64) float64 {
 }
 
 func mul(x, y int) int {
-	return x * y
+	return x*y + 1
 }
